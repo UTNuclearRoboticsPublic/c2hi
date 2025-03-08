@@ -12,7 +12,7 @@ NOTE: By default, this will begin downloading the datafiles to `~/storage/datase
 
 Next, create a softlink from the project directory to the storage directory. At a terminal:
 ```
-cd ~/chiro_ws/src/chiro/bags
+cd ~/c2hi_ws/src/c2hi/bags
 ln -s ~/storage/datasets/doi-10-18738-T8-KENJXS exp_data
 ```
 
