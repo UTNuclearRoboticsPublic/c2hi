@@ -1,0 +1,28 @@
+/record_scene_results_node:
+  ros__parameters:
+    config_name: 'vitl14_basic'
+
+### CLIP SCENE ESTIMATION PARAMS
+/clip_scene_rec:
+  ros__parameters:
+    scene_descriptions: ['a college campus','an outdoor courtyard','a lab', 'a lobby']
+    clip_model: 'ViT-L/14'
+
+### CLIP BAYES ESTIMATOR PARAMS
+/bayes_clip_scene_est:
+  ros__parameters:
+    clip:
+      sensor_model_coeffs: [38652.0,2.0,1.0,1.0,
+                            42482.0,135.0,293.0,1.0,
+                            74.0,1.0,39093.0,3024.0,
+                            696.0,1.0,30.0,40716.0]
+
+### FUSED BAYES ESTIMATOR PARAMS
+/bayes_joint_scene_est:
+  ros__parameters:
+
+    clip:
+      sensor_model_coeffs: [38652.0,2.0,1.0,1.0,
+                            42482.0,135.0,293.0,1.0,
+                            74.0,1.0,39093.0,3024.0,
+                            696.0,1.0,30.0,40716.0]

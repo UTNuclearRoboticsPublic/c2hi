@@ -1,0 +1,31 @@
+/record_scene_results_node:
+  ros__parameters:
+    config_name: 'rn50_basic'
+
+### CLIP SCENE ESTIMATION PARAMS
+/clip_scene_rec:
+  ros__parameters:
+    scene_descriptions: ['a college campus','an outdoor courtyard','a lab', 'a lobby']
+    clip_model: 'RN50'
+
+### CLIP BAYES ESTIMATOR PARAMS
+/bayes_clip_scene_est:
+  ros__parameters:
+
+    clip:
+      obs_labels: ['campus','courtyard','lab','lobby']
+      sensor_model_coeffs: [38580.0,1.0,74.0,1.0,
+                            42907.0,2.0,1.0,1.0,
+                            5319.0,1.0,36867.0,5.0,
+                            5402.0,1.0,2.0,36038.0]
+
+
+### FUSED BAYES ESTIMATOR PARAMS
+/bayes_joint_scene_est:
+  ros__parameters:
+    clip:
+      sensor_model_coeffs: [38580.0,1.0,74.0,1.0,
+                            42907.0,2.0,1.0,1.0,
+                            5319.0,1.0,36867.0,5.0,
+                            5402.0,1.0,2.0,36038.0]
+

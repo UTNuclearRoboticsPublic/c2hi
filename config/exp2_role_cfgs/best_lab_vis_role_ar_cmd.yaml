@@ -1,0 +1,48 @@
+/**:
+  ros__parameters:
+
+    config_name: best_lab_vis_role_artag_cmd
+
+clip_vis_rec_server:
+  ros__parameters:
+    clip_model: 'ViT-L/14'
+    object_classes: ['person']
+
+    person:
+      attributes:
+        variables: ['']
+
+      states:
+        variables: ['role']
+        role:
+          labels: ['pedestrian','teammate','supervisor']
+          descriptions: ['person','person with orange shirt and orange hat','person with orange shirt and orange hat and yellow vest']
+      
+      comms:
+        labels: ['']
+        gesture_descriptions: ['']
+        probs: []
+        # p(command_detected|command_issued)
+        gesture_sensor_model_coeffs: []        
+        verbal_sensor_model_coeffs: []
+
+### MULTIMODAL PROCESSING - SEMANTIC FUSION NODE
+/semantic_fusion_node:
+  ros__parameters:
+
+    role_rec_methods: ['visual']
+    command_rec_methods: ['artag']
+
+    sensors:
+      clip_role_rec:
+        type: 'vision'
+        topic: ''
+
+        update_method: 'time'
+        update_threshold: .9 # 
+
+        # GTSAM fusion variables
+        role_obs_labels: ['pedestrian','teammate','supervisor']
+        role_obs_model_coeffs: [3677.0,9381.0,1.0,
+                                57.0,12483.0,1.0,
+                                1.0,240.0,12635.0]

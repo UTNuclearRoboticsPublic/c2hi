@@ -1,0 +1,33 @@
+/record_scene_results_node:
+  ros__parameters:
+    config_name: 'rn50_detailed'
+
+### CLIP SCENE ESTIMATION PARAMS
+/clip_scene_rec:
+  ros__parameters:
+    scene_descriptions: ['a picture of a public outdoor area with high social activity',
+                         'a picture of a private outdoor area with low social activity',
+                         'a picture of a private indoor area with low social activity',
+                         'a picture of a public indoor area with high social activity']
+    clip_model: 'RN50'
+
+### CLIP BAYES ESTIMATOR PARAMS
+/bayes_clip_scene_est:
+  ros__parameters:
+
+    clip:
+      sensor_model_coeffs: [35941.0,17.0,1.0,2697.0,
+                            38323.0,4020.0,1.0,567.0,
+                            1.0,1.0,41416.0,774.0,
+                            1.0,1.0,34.0,41407.0]
+
+
+### FUSED BAYES ESTIMATOR PARAMS
+/bayes_joint_scene_est:
+  ros__parameters:
+    clip:
+      sensor_model_coeffs: [35941.0,17.0,1.0,2697.0,
+                            38323.0,4020.0,1.0,567.0,
+                            1.0,1.0,41416.0,774.0,
+                            1.0,1.0,34.0,41407.0]
+
