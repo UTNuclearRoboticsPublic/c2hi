@@ -1,0 +1,20 @@
+### MULTIMODAL PROCESSING - SEMANTIC FUSION NODE
+/semantic_fusion_node:
+  ros__parameters:
+
+    role_rec_methods: ['artag']
+    command_rec_methods: ['verbal']
+
+/pra_node:
+  ros__parameters:
+    # Sound source localization
+    ssl_algo: 'TOPS'
+
+/speech_rec_node:
+  ros__parameters:
+
+    trigger_level: 5.0
+    am_bundle: 'WAV2VEC2_ASR_LARGE_960H'
+    lm_weight: 1.
+    word_score: 3.
+    sil_score: 0.

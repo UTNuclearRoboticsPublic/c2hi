@@ -1,0 +1,31 @@
+### MULTIMODAL PROCESSING - SEMANTIC FUSION NODE
+/semantic_fusion_node:
+  ros__parameters:
+    role_rec_methods: ['artag']
+    command_rec_methods: ['gesture']
+
+    sensors:  
+      lstm_gesture_rec:
+        # GTSAM fusion variables
+        comm_obs_labels: ['none', 'advance', 'attention', 'follow-me', 'halt', 'move-forward', 'move-in-reverse', 'rally']
+        comm_obs_model_coeffs: [5.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,
+                                0.1,10.1,0.1,1.1,1.1,0.1,0.1,0.1,
+                                0.1,0.1,5.1,1.1,0.1,0.1,0.1,3.1,
+                                0.1,1.1,0.1,7.1,1.1,1.1,0.1,1.1,
+                                0.1,1.1,0.1,0.1,6.1,0.1,0.1,1.1,
+                                0.1,1.1,0.1,0.1,0.1,7.1,2.1,0.1,
+                                0.1,0.1,0.1,0.1,0.1,2.1,5.1,0.1,
+                                0.1,0.1,2.1,0.1,0.1,0.1,0.1,6.1]
+    person:
+      # Specific to person
+      window_length: 16
+      model_input_dim: 51
+
+/gesture_rec_server:
+  ros__parameters:
+    window_length: 16
+    command_list: ['none', 'advance', 'attention', 'follow-me', 'halt', 'move-forward', 'move-in-reverse', 'rally']
+    command_idx: [0, 1, 2, 3, 4, 5, 6, 7]
+    model_path: 'models/real_80_withnone_wl16/lstm_ges_kp_class_2024.12.26_04.52.41.pt'
+    keypoints_per_frame: 17
+    keypoint_dimension: 3

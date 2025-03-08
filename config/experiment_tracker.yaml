@@ -1,0 +1,1486 @@
+tbd_tracker_node:
+  ros__parameters:
+    tracker:
+      frame_id: 'philbart/base_link'
+      mismatch_penalty: 100.
+      assignment_algo: 'greedy'
+      yaw_corr: False
+      publishers:
+          names: ['track_pub', scene_pub]
+          track_pub: # Publisher name
+            pub_topic: 'tracks'
+            msg_type: 'Tracks3D'
+            function: 'publish_tracks'
+            queue_size: 10
+          scene_pub: # Publisher name
+            pub_topic: 'scenes'
+            msg_type: 'SceneUpdate'
+            function: 'publish_scene'
+            queue_size: 10
+
+    object_properties: 
+      object_classes: ["person", "bicycle","car","motorbike","aeroplane","bus","train","truck","boat","traffic light","fire hydrant","stop sign","parking meter","bench","bird","cat","dog","horse","sheep","cow","elephant","bear","zebra","giraffe","backpack","umbrella","handbag","tie","suitcase","frisbee","skis","snowboard","sports ball","kite","baseball bat","baseball glove","skateboard","surfboard","tennis racket","bottle","wine glass","cup","fork","knife","spoon","bowl","banana","apple","sandwich","orange","broccoli","carrot","hot dog","pizza","donut","cake","chair","sofa","pottedplant","bed","diningtable","toilet","tvmonitor","laptop","mouse","remote","keyboard","cell phone","microwave","oven","toaster","sink","refrigerator","book","clock","vase","scissors","teddy bear","hair drier","toothbrush"]
+      person:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      bicycle:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      car:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      motorbike:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      aeroplane:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      bus:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      train:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      truck:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      boat:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      traffic light:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      fire hydrant:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      stop sign:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      parking meter:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      bench:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      bird:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      cat:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      dog:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      horse:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      sheep:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      cow:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      elephant:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      bear:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      zebra:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      giraffe:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      backpack:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      umbrella:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      handbag:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      tie:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      suitcase:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      frisbee:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      skis:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      snowboard:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      sports ball:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      kite:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      baseball bat:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      baseball glove:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      skateboard:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      surfboard:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      tennis racket:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      bottle:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      wine glass:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      cup:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      fork:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      knife:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      spoon:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      bowl:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      banana:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      apple:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      sandwich:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      orange:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      broccoli:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      carrot:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      hot dog:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      pizza:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      donut:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      cake:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      chair:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      sofa:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      pottedplant:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      bed:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      diningtable:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      toilet:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      tvmonitor:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      laptop:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      mouse:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      remote:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      keyboard:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      cell phone:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      microwave:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      oven:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      toaster:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      sink:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      refrigerator:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      book:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      clock:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      vase:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      scissors:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      teddy bear:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      hair drier:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+      toothbrush:
+          model_type: 'cvcy_obj'
+          yaw_proc_var: [1.]
+          size_proc_var: [1., 1., 1.]
+          vel_proc_var: [1., .5, .5]
+          
+          length: 0.25
+          width: 0.25
+          height: 0.5
+          create_method: 'conf'
+          delete_method: 'conf'
+          active_thresh: .75
+          delete_thresh: .15
+          detect_thresh: .15
+          score_update_function: 'parallel_add'
+          score_decay: .01
+          sim_metric: 'dist_3d'
+          match_thresh: 2.0
+
+    detectors:
+      #Declare names of detectors upfront
+      detector_names: ['oakd']
+
+      # For each named detector, give detector model information
+      oakd:
+        topic: 'converted_vision_detections'
+        msg_type: 'Detections3D'
+        detector_type: 'pos_3d'
+        detection_classes: ["person", "bicycle","car","motorbike","aeroplane","bus","train","truck","boat","traffic light","fire hydrant","stop sign","parking meter","bench","bird","cat","dog","horse","sheep","cow","elephant","bear","zebra","giraffe","backpack","umbrella","handbag","tie","suitcase","frisbee","skis","snowboard","sports ball","kite","baseball bat","baseball glove","skateboard","surfboard","tennis racket","bottle","wine glass","cup","fork","knife","spoon","bowl","banana","apple","sandwich","orange","broccoli","carrot","hot dog","pizza","donut","cake","chair","sofa","pottedplant","bed","diningtable","toilet","tvmonitor","laptop","mouse","remote","keyboard","cell phone","microwave","oven","toaster","sink","refrigerator","book","clock","vase","scissors","teddy bear","hair drier","toothbrush"]
+        detection_classes_ignore: ["bicycle","car","motorbike","aeroplane","bus","train","truck","boat","traffic light","fire hydrant","stop sign","parking meter","bench","bird","cat","dog","horse","sheep","cow","elephant","bear","zebra","giraffe","backpack","umbrella","handbag","tie","suitcase","frisbee","skis","snowboard","sports ball","kite","baseball bat","baseball glove","skateboard","surfboard","tennis racket","bottle","wine glass","cup","fork","knife","spoon","bowl","banana","apple","sandwich","orange","broccoli","carrot","hot dog","pizza","donut","cake","chair","sofa","pottedplant","bed","diningtable","toilet","tvmonitor","laptop","mouse","remote","keyboard","cell phone","microwave","oven","toaster","sink","refrigerator","book","clock","vase","scissors","teddy bear","hair drier","toothbrush"]
+        detection_properties:
+            person:
+                pos_obs_var: [.0333, .0333, 1.]
+                yaw_obs_var: [1.]
+                size_obs_var: [1., 1., 1.]
+                object_class: 'person'
+                create_method: 'conf'
+                delete_method: 'conf'
+                active_thresh: .5
+                detect_thresh: .5
+                delete_thresh: .3
+                score_update_function: 'parallel_add'
+                score_decay: .03
+                sim_metric: 'dist_2d'
+                match_thresh: 0.5
